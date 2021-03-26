@@ -1,6 +1,6 @@
 REPO_URL='https://github.com/Romop5/holoinjector-tests/raw/readme/'
 
-RESULTS=`find results | grep '_normal' | grep 'png'`
+RESULTS=`find results |sort | grep '_normal' | grep 'png'`
 
 rm README.md
 
