@@ -14,8 +14,8 @@ INSTALL_DIR="examples"
 
 cloneAndInstallRepo() {
     BASEDIR=`pwd`
-    REPO=${INSTALL_DIR}
-    REPO_NAME=`basename ${INSTALL_DIR}`
+    REPO=${1}
+    REPO_NAME=`basename ${1}`
     echo "[${0}] Installing ${REPO_NAME}"
     if ! [[ -d ${REPO_NAME} ]];
     then
@@ -72,15 +72,13 @@ installNehe
 cd ${START_DIR_ABS}
 fi
 # Copy additional files (e.g. start scripts)
-cp ./data/run.sh ${INSTALL_DIR}/LearnOpenGL/
-cp ./data/enhancer.sh ${INSTALL_DIR}/LearnOpenGL/
+cp dataset_helpers/leogl/run.sh ${INSTALL_DIR}/LearnOpenGL/
+cp dataset_helpers/leogl/runNormal.sh ${INSTALL_DIR}/LearnOpenGL/
+cp dataset_helpers/leogl/tracer.sh ${INSTALL_DIR}/LearnOpenGL/
+cp dataset_helpers/leogl/gdb.sh ${INSTALL_DIR}/LearnOpenGL/
 
 
-cp ./nehe/nehe.sh ${INSTALL_DIR}/nehe-opengl/
-cp ./nehe/enhancer.sh ${INSTALL_DIR}/nehe-opengl/
-cp ./nehe/gdb.sh ${INSTALL_DIR}/nehe-opengl/
-cp ./nehe/tracer.sh ${INSTALL_DIR}/nehe-opengl/
-
-
-
-
+cp dataset_helpers/nehe/nehe.sh ${INSTALL_DIR}/nehe-opengl/
+cp dataset_helpers/nehe/enhancer.sh ${INSTALL_DIR}/nehe-opengl/
+cp dataset_helpers/nehe/gdb.sh ${INSTALL_DIR}/nehe-opengl/
+cp dataset_helpers/nehe/tracer.sh ${INSTALL_DIR}/nehe-opengl/
