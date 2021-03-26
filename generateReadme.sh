@@ -12,7 +12,13 @@ Semi-automatized test dataset for [HoloInjector](https://github.com/Romop5/holoi
 - run *runDataset.sh* to run HoloInjector over exampleList.txt. This results in screenshots,
   stored in results. This screenshots compare a regular application (_normal) with
   converted.
-- run *generateReadme.sh* to regenerate this README.md' >> README.md
+- run *generateReadme.sh* to regenerate this README.md
+## Images of results
+
+First image: regular application
+Second iamge: after conversion
+Quilt used: 3x3
+' >> README.md
 
 echo "<div align='center'>" >> README.md
 for RESULT in ${RESULTS}

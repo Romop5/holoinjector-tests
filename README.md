@@ -7,6 +7,12 @@ Semi-automatized test dataset for [HoloInjector](https://github.com/Romop5/holoi
   stored in results. This screenshots compare a regular application (_normal) with
   converted.
 - run *generateReadme.sh* to regenerate this README.md
+## Images of results
+
+First image: regular application
+Second iamge: after conversion
+Quilt used: 3x3
+
 <div align='center'>
 
 <img src='https://github.com/Romop5/holoinjector-tests/raw/readme/results/1.advanced_lighting_normal.png'     alt='Original'  height='200px'/>
