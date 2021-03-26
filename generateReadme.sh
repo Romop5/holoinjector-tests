@@ -1,4 +1,4 @@
-REPO_URL='https://github.com/Romop5/holoinjector-tests/raw/readme/'
+REPO_URL='https://github.com/Romop5/holoinjector-tests/raw/master/'
 
 RESULTS=`find results |sort | grep '_normal' | grep 'png'`
 
