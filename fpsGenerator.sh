@@ -22,50 +22,44 @@ runWithParameters()
     if [ "$5" = "1" ]
     then 
         export ENHANCER_NOW=1
+        unset ENHANCER_NONINTRUSIVE
     else
         unset ENHANCER_NOW
+        export ENHANCER_NONINTRUSIVE=1
     fi
     ENHANCER_EXIT_AFTER=$2 ENHANCER_QUILTX=$3 ENHANCER_QUILTY=$4 ENHANCER_FBOWIDTH=$6 ENHANCER_FBOHEIGHT=$7 runFPSAndProcess "$1" ${FILENAME}
     echo "---"
 }
 
 
-runWithParameters "./examples/LearnOpenGL/run.sh \
-./examples/LearnOpenGL/src/4.advanced_opengl/10.2.asteroids" 200 1 1 0 128 128
+runAllOptionsForComamnd()
+{
+    COMMAND=$1
+    MAXFRAMES=200
 
-runWithParameters "./examples/LearnOpenGL/run.sh \
-./examples/LearnOpenGL/src/4.advanced_opengl/10.2.asteroids" 200 3 3 0 128 128
-
-runWithParameters "./examples/LearnOpenGL/run.sh \
-./examples/LearnOpenGL/src/4.advanced_opengl/10.2.asteroids" 200 3 3 1 128 128
-
-runWithParameters "./examples/LearnOpenGL/run.sh \
-./examples/LearnOpenGL/src/4.advanced_opengl/10.2.asteroids" 200 5 9 1 128 128
+    runWithParameters "${COMMAND}" ${MAXFRAMES} 1 1 0 128 128
+    runWithParameters "${COMMAND}" ${MAXFRAMES} 1 1 1 128 128
+    runWithParameters "${COMMAND}" ${MAXFRAMES} 3 3 1 128 128
+    runWithParameters "${COMMAND}" ${MAXFRAMES} 5 9 1 128 128
 
 
-runWithParameters "./examples/LearnOpenGL/run.sh \
-./examples/LearnOpenGL/src/4.advanced_opengl/10.2.asteroids" 200 1 1 0 256 256
-
-runWithParameters "./examples/LearnOpenGL/run.sh \
-./examples/LearnOpenGL/src/4.advanced_opengl/10.2.asteroids" 200 3 3 0 256 256
-
-runWithParameters "./examples/LearnOpenGL/run.sh \
-./examples/LearnOpenGL/src/4.advanced_opengl/10.2.asteroids" 200 3 3 1 256 256
-
-runWithParameters "./examples/LearnOpenGL/run.sh \
-./examples/LearnOpenGL/src/4.advanced_opengl/10.2.asteroids" 200 5 9 1 256 256
+    runWithParameters "${COMMAND}" ${MAXFRAMES} 1 1 0 256 256
+    runWithParameters "${COMMAND}" ${MAXFRAMES} 1 1 1 256 256
+    runWithParameters "${COMMAND}" ${MAXFRAMES} 3 3 1 256 256
+    runWithParameters "${COMMAND}" ${MAXFRAMES} 5 9 1 256 256
 
 
-runWithParameters "./examples/LearnOpenGL/run.sh \
-./examples/LearnOpenGL/src/4.advanced_opengl/10.2.asteroids" 200 1 1 0 512 512
+    runWithParameters "${COMMAND}" ${MAXFRAMES} 1 1 0 512 512
+    runWithParameters "${COMMAND}" ${MAXFRAMES} 1 1 1 512 512
+    runWithParameters "${COMMAND}" ${MAXFRAMES} 3 3 1 512 512
+    runWithParameters "${COMMAND}" ${MAXFRAMES} 5 9 1 512 512
+}
 
-runWithParameters "./examples/LearnOpenGL/run.sh \
-./examples/LearnOpenGL/src/4.advanced_opengl/10.2.asteroids" 200 3 3 0 512 512
+# Simple scene, no expensive operations, simple geometry
+runAllOptionsForComamnd "./examples/LearnOpenGL/run.sh ./examples/LearnOpenGL/src/4.advanced_opengl/6.1.cubemaps_skybox"
 
-runWithParameters "./examples/LearnOpenGL/run.sh \
-./examples/LearnOpenGL/src/4.advanced_opengl/10.2.asteroids" 200 3 3 1 512 512
+# Lots of geometry, but simple shading
+runAllOptionsForComamnd "./examples/LearnOpenGL/run.sh ./examples/LearnOpenGL/src/4.advanced_opengl/10.2.asteroids"
 
-runWithParameters "./examples/LearnOpenGL/run.sh \
-./examples/LearnOpenGL/src/4.advanced_opengl/10.2.asteroids" 200 5 9 1 512 512
-
-
+# Not so much of geometry, but expensive PBR shading
+runAllOptionsForComamnd "./examples/LearnOpenGL/run.sh ./examples/LearnOpenGL/src/6.pbr/2.2.2.ibl_specular_textured"
