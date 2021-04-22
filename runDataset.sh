@@ -3,12 +3,12 @@
 #############################################################
 
 PATH_TO_HOLOINJECTOR=`realpath ~/school/holoInjector/build/librepeater.so`
-COMMON_FLAGS="ENHANCER_RUNINBG=1"
+COMMON_FLAGS="HI_RUNINBG=1"
 #COMMON_FLAGS=""
-NORMAL_FLAGS="ENHANCER_EXIT_AFTER=3"
-CONVERTED_FLAGS="ENHANCER_EXIT_AFTER=4 \
-                 ENHANCER_QUILT=1 \
-                 ENHANCER_WIDE=1"
+NORMAL_FLAGS="HI_EXIT_AFTER=3"
+CONVERTED_FLAGS="HI_EXIT_AFTER=4 \
+                 HI_QUILT=1 \
+                 HI_WIDE=1"
 
 #############################################################
 # Code

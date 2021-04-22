@@ -1,6 +1,6 @@
 runFPS()
 {
-    ENHANCER_RECORDFPS=1  $* | grep "Frame ID:" > fps.txt
+    HI_RECORDFPS=1  $* | grep "Frame ID:" > fps.txt
 }
 
 runFPSAndProcess()
@@ -15,19 +15,19 @@ runFPSAndProcess()
 
 runWithParameters()
 {
-    FILEHASH=`echo "MAX FRAMES: $2 QUILT: ${3}x${4} ENHANCER_ON: ${5} WIDTH= ${6} HEIGHT: ${7}
+    FILEHASH=`echo "MAX FRAMES: $2 QUILT: ${3}x${4} HI_ON: ${5} WIDTH= ${6} HEIGHT: ${7}
     COMMAND: $1" | sha1sum | sed "s/ *- *$//g"`
     FILENAME=`echo fpsResults/${FILEHASH}.txt`
-    echo "[${FILENAME}]  MAX FRAMES: $2 QUILT: ${3}x${4} ENHANCER_ON: ${5} WIDTH= ${6} HEIGHT: ${7} COMMAND: $1"
+    echo "[${FILENAME}]  MAX FRAMES: $2 QUILT: ${3}x${4} HI_ON: ${5} WIDTH= ${6} HEIGHT: ${7} COMMAND: $1"
     if [ "$5" = "1" ]
     then 
-        export ENHANCER_NOW=1
-        unset ENHANCER_NONINTRUSIVE
+        export HI_NOW=1
+        unset HI_NONINTRUSIVE
     else
-        unset ENHANCER_NOW
-        export ENHANCER_NONINTRUSIVE=1
+        unset HI_NOW
+        export HI_NONINTRUSIVE=1
     fi
-    ENHANCER_EXIT_AFTER=$2 ENHANCER_QUILTX=$3 ENHANCER_QUILTY=$4 ENHANCER_FBOWIDTH=$6 ENHANCER_FBOHEIGHT=$7 runFPSAndProcess "$1" ${FILENAME}
+    HI_EXIT_AFTER=$2 HI_QUILTX=$3 HI_QUILTY=$4 HI_FBOWIDTH=$6 HI_FBOHEIGHT=$7 runFPSAndProcess "$1" ${FILENAME}
     echo "---"
 }
 
